@@ -7,8 +7,8 @@
             </div>
             <div class="login-right">
                 <div class="login-title">
-                    <div @click="changeCl($event,true)" class="active">登录</div>
-                    <div @click="changeCl($event,false)">注册</div>
+                    <div @click="changeCl(true)" :class="[checkLogin?'active':'']">登录</div>
+                    <div @click="changeCl(false)" :class="[!checkLogin?'active':'']">注册</div>
                 </div>
                 <el-form
                     ref="ruleFormRef"
@@ -80,9 +80,7 @@
     import { parseToken } from '@/utils/utils'
     //切换登录、注册页面
     let checkLogin = ref(true)
-    const changeCl = (e,n)=>{
-        document.querySelector('.active').classList.remove('active')
-        e.target.classList.add('active')
+    const changeCl = (n)=>{
         checkLogin.value = n
         form.name = '' 
         form.password = ''
@@ -138,6 +136,7 @@
     const userStore = useUserStore()
     import { useRouter } from "vue-router";
     import { createNowTime } from '@/utils/utils'
+    import { v4 as uuidv4 } from 'uuid'
     const router = useRouter();
     // -------------------------------------------------------------------------------------------
     // 点击登录或注册按钮
@@ -188,20 +187,39 @@
 
         }else{
             // 注册事件
-            if(await userStore.haveUser(form.name)){
-                ElMessage.error('账号已存在，请更换账号名')
+            let result
+            try{
+                result = await api.check_user_name(form.name)
+            }catch(e){
+                ElMessage.error('注册失败，请稍后再试！')
+            }
+            // console.log(result)
+            if(!result){
                 return
             }
-            if(userStore.pushUser(form.name,form.password)){
-                ElMessage.success('注册成功')
-                form.value = {
-                    name:'',
-                    password:'',
-                    rePassword:'',
-                    code:''
-                }
-                checkLogin.value = true
+            if(result.data){
+                ElMessage.error('账户已存在，请更换账号名！')
+                return
             }
+            let userForm = {}
+            userForm.create_time = createNowTime()
+            userForm.id = uuidv4()
+            userForm.name = form.name
+            userForm.password = form.password
+            userForm.nickName = form.name
+            // console.log(userForm)
+            let result1
+            try{
+                result1 = await api.add_new_user(userForm)
+            }catch(e){
+                ElMessage.error('注册失败，请稍后再试！')
+            }
+            if(!result1){
+                return
+            }
+
+            ElMessage.success('注册成功！')
+            changeCl(true)
         }
     }
     // ----------------------------------------------------------------------------------------------------------
