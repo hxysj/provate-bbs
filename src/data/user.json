@@ -1,0 +1,20 @@
+[
+    {
+        "id":0,
+        "name":"administrator",
+        "nickName":"administrator",
+        "password":"123456",
+        "icon":"default.svg",
+        "create_time":"2024-03-19",
+        "lastLoginTime":"2024-03-19"
+    },
+    {
+        "id":1,
+        "name":"mytest01",
+        "nickName":"test",
+        "password":"123456",
+        "icon":"default.svg",
+        "create_time":"2024-03-21",
+        "lastLoginTime":"2024-03-21"
+    }
+]
