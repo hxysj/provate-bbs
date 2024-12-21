@@ -86,9 +86,9 @@ yarn start
 
 新手做的项目，很多地方都不足
 
-provateBBS 项目地址：https://gitee.com/piecemeals/provate-bbs.git
+provateBBS 项目地址：https://github.com/lzb1015/provate-bbs
 
-provateBBS-server 项目地址：https://gitee.com/piecemeals/provate-bbs-server.git
+provateBBS-server 项目地址：https://github.com/lzb1015/provate-bbs-server
 
-provate-bbs-admin 项目地址：https://gitee.com/piecemeals/provate-bbs-admin.git
+provate-bbs-admin 项目地址：https://github.com/lzb1015/provate-bbs-admin
 
