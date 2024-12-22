@@ -21,7 +21,7 @@ vue3 + vite + pinia + vue-router + element-plus + sass  + wangEditor
 ## 项目运行
 
 ```
-git clone https://gitee.com/piecemeals/provate-bbs.git
+git clone https://github.com/lzb1015/provate-bbs.git
 
 cd provate-bbs
 
