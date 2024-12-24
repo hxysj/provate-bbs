@@ -21,7 +21,7 @@ vue3 + vite + pinia + vue-router + element-plus + sass  + wangEditor
 ## 项目运行
 
 ```
-git clone https://github.com/lzb1015/provate-bbs.git
+git clone https://github.com/hxysj/provate-bbs.git
 
 cd provate-bbs
 
@@ -86,9 +86,9 @@ yarn start
 
 新手做的项目，很多地方都不足
 
-provateBBS 项目地址：https://github.com/lzb1015/provate-bbs
+provateBBS 项目地址：https://github.com/hxysj/provate-bbs
 
-provateBBS-server 项目地址：https://github.com/lzb1015/provate-bbs-server
+provateBBS-server 项目地址：https://github.com/hxysj/provate-bbs-server
 
-provate-bbs-admin 项目地址：https://github.com/lzb1015/provate-bbs-admin
+provate-bbs-admin 项目地址：https://github.com/hxysj/provate-bbs-admin
 
